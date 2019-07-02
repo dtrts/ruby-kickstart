@@ -9,5 +9,10 @@
 
 def sum_difference_product
   # your code goes here
-  
+  two_integers = gets.chomp.split(" ")
+
+  puts two_integers[0] + two_integers[1]
+  puts two_integers[0] - two_integers[1]
+  puts two_integers[0] * two_integers[1]
+
 end
