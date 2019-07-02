@@ -6,4 +6,26 @@
 
 def pirates_say_arrrrrrrrr(string)
 
+  len = string.length
+  
+  if len == 1 
+    return ""
+  end
+
+  i = 0 
+
+  output = ""
+
+  while i < len - 1 
+
+    if string[i] == "r"
+      output << string[ i + 1 ]
+    end 
+
+    i += 1 
+  
+  end 
+
+  return output
+  
 end

@@ -7,4 +7,18 @@
 
 def odds_and_evens(string, return_odds)
 
+  output = ""
+
+  string.split("").each_with_index do |letter ,index|
+  
+    if return_odds && index%2 == 1 
+      output << letter
+    elsif !return_odds && index % 2 == 0
+      output << letter 
+    end
+  
+  end 
+
+    output 
+
 end
