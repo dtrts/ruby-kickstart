@@ -7,25 +7,25 @@
 def pirates_say_arrrrrrrrr(string)
 
   len = string.length
-  
-  if len == 1 
+
+  if len == 1
     return ""
   end
 
-  i = 0 
+  i = 0
 
   output = ""
 
-  while i < len - 1 
+  while i < len - 1
 
-    if string[i] == "r"
+    if string[i] == "r" || string[i] == "R"
       output << string[ i + 1 ]
-    end 
+    end
 
-    i += 1 
-  
-  end 
+    i += 1
+
+  end
 
   return output
-  
+
 end

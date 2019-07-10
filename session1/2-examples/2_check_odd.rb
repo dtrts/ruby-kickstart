@@ -6,7 +6,7 @@
 # it is stored in the ARGV array
 unless ARGV.first
   puts "You need to submit a number to check"
-  exit(1) # Use exit(0) to exit the program early.
+  exit(0) # Use exit(0) to exit the program early.
 end       # If you're exiting because something went wrong, pass a different number like 1
 
 
