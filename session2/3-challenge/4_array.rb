@@ -9,4 +9,14 @@
 # This time you will have to define the method, it's called: get_squares
 
 
+def get_squares(array)
+  array.sort!
+  output = Array.new
+  array.each do |value|
+    if array.include?(value*value)
+      output << value
+    end
+  end
+  return output
+end
 

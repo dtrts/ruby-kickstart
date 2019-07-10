@@ -6,7 +6,15 @@
 # "".every_other_char         # => ""
 
 class String
+
   def every_other_char
+    output = ""
+    self.split("").each_with_index do |char, index|
+      if index % 2 == 0
+        output << char
+      end
+    end
+    return output
   end
-  
+
 end
