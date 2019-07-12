@@ -10,17 +10,19 @@
 # alternate_words("Elementary, my dear Watson!")  # => ["Elementary", "dear"]
 
 def alternate_words(sentence)
-  split_list = [" ", "!", "@", "$", "#", "%", "^", "&", "*", "(", ")", "-", "=", "_", "+", "[", "]", ":", ";", ",", ".", "/", "<", ">", "?", "\\", "|"]
 
-  word_array = [sentence]
+  return sentence.scan(/[a-zA-Z'`’]+/).select.with_index{|word,i| i%2==0}
 
-  split_list.each do |splitter|
-    word_array.collect! do |word|
-      word.split(splitter)
-    end
-    word_array.flatten!
-  end
+  # split_list = [" ", "!", "@", "$", "#", "%", "^", "&", "*", "(", ")", "-", "=", "_", "+", "[", "]", ":", ";", ",", ".", "/", "<", ">", "?", "\\", "|"]
 
+  # word_array = [sentence]
 
-  return word_array.select.with_index {|word,i| i%2==0}
+  # split_list.each do |splitter|
+  #   word_array.collect! do |word|
+  #     word.split(splitter)
+  #   end
+  #   word_array.flatten!
+  # end
+
+  # return word_array.select.with_index {|word,i| i%2==0}
 end
