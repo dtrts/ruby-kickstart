@@ -18,6 +18,10 @@ RSpec.describe 'BeerSong' do
     lines = input_output { BeerSong.new(n).print_song }
               .split("\n")
               .reject { |line| line.empty? }
+
+    # puts (lines - stanza(1..n)).uniq
+    # puts (stanza(1..n)-lines).uniq
+
     expect(lines).to eq stanza(1..n)
   end
 
