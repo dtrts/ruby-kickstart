@@ -25,6 +25,17 @@
 
 def deaf_grandma
 
+  loop do
+    chat = gets.chomp
+    if chat == "BYE"
+      break
+    elsif chat.upcase == chat && chat.length > 0
+      puts "NO, NOT SINCE 1938!"
+    else
+      puts "HUH?! SPEAK UP, SONNY!"
+    end
+  end
+
 end
 
 
