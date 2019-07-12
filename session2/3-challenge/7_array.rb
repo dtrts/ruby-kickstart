@@ -11,7 +11,8 @@
 
 def alternate_words(sentence)
 
-  return sentence.scan(/[a-zA-Z'`’]+/).select.with_index{|word,i| i%2==0}
+  # return sentence.scan(/[a-zA-Z'`’]+/).select.with_index{|word,i| i%2==0}
+  return sentence.scan(/[^!@$#%^&*()-=_+[]]:;,.\/<>?\| ]+/).select.with_index{|word,i| i%2==0}
 
   # split_list = [" ", "!", "@", "$", "#", "%", "^", "&", "*", "(", ")", "-", "=", "_", "+", "[", "]", ":", ";", ",", ".", "/", "<", ">", "?", "\\", "|"]
 
