@@ -8,6 +8,22 @@
 # staircase 4  # => {1 => [], 3 => [2]}
 # staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
 
+def staircase(int)
+  output = Hash.new
+  int.downto 1 do |value|
+    if value%2 == 1
+      output[value] = []
+      value.downto 1 do |value_2|
+        output[value] << value_2 if value_2%2 == 0
+      end
+    end
+    output[value] = output[value].reverse if output[value] != nil
+  end
+  return output
+end
+
+
+
 
 
 
