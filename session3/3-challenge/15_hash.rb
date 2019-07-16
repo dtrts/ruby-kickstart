@@ -48,3 +48,18 @@
 
 
 
+def middle(head)
+  data = data_from_head(head)
+  return data[data.length/2]
+end
+
+
+def data_from_head(head)
+
+  if head[:next] == nil
+    return [head[:data]]
+  else
+    [head[:data]] + data_from_head(head[:next])
+  end
+
+end
