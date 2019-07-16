@@ -23,5 +23,53 @@
 # problem_14 2,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => true
 # problem_14 3,   5, 6, 45, 99, 13, 5, 6,  :problem => :same_ends    # => false
 
+def problem_14(*params)
+  problem = :count_clumps
+  if params.last.is_a?(Hash)
+    problem = params.pop[:problem]
+  end
 
+  if problem == :count_clumps
+    return count_clumps(*params)
+  else
+    return same_ends(*params)
+  end
 
+end
+
+def count_clumps(*params)
+  clumps = 0
+  previous_value = nil
+  clumped = 0
+  params.each do |param|
+
+    if clumped == 0 && previous_value == param
+      clumps += 1
+      clumped = 1
+    elsif previous_value != param
+      clumped = 0
+    end
+
+    previous_value = param
+  end
+
+  return clumps
+
+end
+
+def same_ends(*params)
+
+  n = params.shift
+  len = params.length
+
+  return true if n == 0
+  return false if len == 0
+
+  matchy = true
+  n.times do |i| # 0 indexed
+    matchy &&= (params[i] == params[len-n+i])
+  end
+
+  return matchy
+
+end
