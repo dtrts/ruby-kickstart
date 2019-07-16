@@ -19,3 +19,18 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
+def match_maker(tester ,*args)
+  args.each_slice(2).each_with_object([]) do |slice ,output|
+     a, b = !!slice[0], !!slice[1]
+     if tester
+        a == b ? output << false : output << true
+     else
+        a == b ? output << true : output << false
+     end
+
+  end
+
+
+end
+
+
