@@ -17,3 +17,18 @@
 # head = {:data => 6, :next => head}
 # print_list head                    # >> "6\n5\n4\n3\n2\n1\n"
 
+
+def print_list(head)
+  data = data_from_head(head)
+  puts data.join("\n")
+end
+
+def data_from_head(head)
+
+  if head[:next] == nil
+    return [head[:data]]
+  else
+    [head[:data]] + data_from_head(head[:next])
+  end
+
+end
