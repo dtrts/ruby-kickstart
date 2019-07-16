@@ -33,18 +33,23 @@
 
 
 def pathify(roots)
+
   return [] unless roots
   output = []
+
   if roots.is_a?(Hash)
     roots.each do |key, value|
       pathify(value).each do |path|
         output << "/#{key}#{path}"
       end
     end
+
   elsif roots.is_a?(Array)
     roots.each do |value|
       output << "/#{value}"
     end
   end
+
   return output
+
 end
