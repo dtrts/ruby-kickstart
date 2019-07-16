@@ -29,3 +29,20 @@
 # shared [1,2,3], [3,2,1]            # => [{1=>[true, true], 2=>[true, true], 3=>[true, true]}, [1, 2, 3]]
 
 
+def shared(arr1, arr2)
+
+  output = [Hash.new(),[]]
+
+  arr1.each do |val1|
+    output[0][val1] ||= [nil ,nil]
+    output[0][val1][0] = true
+  end
+
+  arr2.each do |val2|
+    output[0][val2] ||= [nil, nil]
+    output[0][val2][1] = true
+    output[1] << val2 if output[0][val2] == [true, true]
+  end
+  output[1].sort!
+  return output
+end
