@@ -9,6 +9,18 @@
 #
 # print_list_in_reverse head   # >> "1\n2\n"
 
-def print_list_in_reverse list
-  
+def print_list_in_reverse(list)
+  data = data_from_head(list)
+  puts data.reverse.join("\n")
+end
+
+
+def data_from_head(head)
+
+  if head[:next] == nil
+    return [head[:data]]
+  else
+    [head[:data]] + data_from_head(head[:next])
+  end
+
 end
