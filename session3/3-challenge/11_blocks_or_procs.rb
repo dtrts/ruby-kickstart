@@ -32,6 +32,17 @@
 # end
 
 
+def array_init(num=5,&block)
+
+  arr = Array.new(num) do |i|
+    if block
+      block.call(i)
+    else
+      (i*100).to_s
+    end
+  end
+
+end
 
 
 
