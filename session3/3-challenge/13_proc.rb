@@ -56,5 +56,11 @@
 
 
 
-
+def your_sort(arr ,&block)
+  if block
+    return arr.sort{ |a,b| block.call(a,b)}
+  else
+    return arr.sort{|a,b| a<=>b}
+  end
+end
 
