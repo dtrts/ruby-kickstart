@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Taken from http://pragprog.com/titles/fr_ltp/learn-to-program
 #
 # Write a Deaf Grandma program. Whatever you say to grandma (whatever
@@ -24,24 +26,18 @@
 # USER:     BYE
 
 def deaf_grandma
-
   loop do
     chat = gets.chomp
-    if chat == "BYE"
+    if chat == 'BYE'
       break
-    elsif chat.upcase == chat && chat.length > 0
-      puts "NO, NOT SINCE 1938!"
+    elsif chat.upcase == chat && !chat.empty?
+      puts 'NO, NOT SINCE 1938!'
     else
-      puts "HUH?! SPEAK UP, SONNY!"
+      puts 'HUH?! SPEAK UP, SONNY!'
     end
   end
-
 end
-
-
-
-
 
 # This will call your code so you can run it from the terminal.
 # But not call it otherwise, so that it will work with our tests.
-deaf_grandma if $0 == __FILE__
+deaf_grandma if $PROGRAM_NAME == __FILE__

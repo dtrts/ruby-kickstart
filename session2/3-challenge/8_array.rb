@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Given an array of elements, return true if any element shows up three times in a row
 #
 # Examples:
@@ -6,15 +8,14 @@
 # got_three? ['a', 'a', 'a']  # => true
 # got_three? [1, 2, 1, 1]     # => false
 
-def got_three? (array)
+def got_three?(array)
   i = 2
 
   while i < array.length
-    if array[i] == array[i-1] && array[i] == array[i-2]
-      return true
-    end
-    i+=1
+    return true if array[i] == array[i - 1] && array[i] == array[i - 2]
+
+    i += 1
   end
 
-  return false
+  false
 end

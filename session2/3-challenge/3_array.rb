@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Write a method named every_other_char for strings that,
 # returns a string containing every other character
 #
@@ -6,15 +8,11 @@
 # "".every_other_char         # => ""
 
 class String
-
   def every_other_char
-    output = ""
-    self.split("").each_with_index do |char, index|
-      if index % 2 == 0
-        output << char
-      end
+    output = ''
+    split('').each_with_index do |char, index|
+      output << char if index.even?
     end
-    return output
+    output
   end
-
 end

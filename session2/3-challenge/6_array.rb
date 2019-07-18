@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Write a method named prime_chars? which takes array of strings
 # and returns true if the sum of the characters is prime.
 #
@@ -16,28 +18,23 @@
 # prime_chars? ['a', 'b', 'cd']   # => false
 
 def prime_chars?(string_arr)
-
-  num_chars = string_arr.join("").length
+  num_chars = string_arr.join('').length
 
   if num_chars == 1
     return false
   elsif num_chars == 2
     return true
-  elsif num_chars % 2 == 0
+  elsif num_chars.even?
     return false
   end
 
   i = 3
 
-  while i < (num_chars/2 + 1)
-    if num_chars % i == 0
-      return false
-    end
+  while i < (num_chars / 2 + 1)
+    return false if num_chars % i == 0
+
     i += 2
   end
 
-  return true
-
+  true
 end
-
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Given a sentence, return an array containing every other word.
 # Punctuation is not part of the word unless it is a contraction.
 # In order to not have to write an actual language parser, there won't be any punctuation too complex.
@@ -10,9 +12,8 @@
 # alternate_words("Elementary, my dear Watson!")  # => ["Elementary", "dear"]
 
 def alternate_words(sentence)
-
   # return sentence.scan(/[a-zA-Z'`’]+/).select.with_index{|word,i| i%2==0}
-  return sentence.scan(/[^!@$#%^&*()-=_+[]]:;,.\/<>?\| ]+/).select.with_index{|word,i| i%2==0}
+  sentence.scan(%r{[^!@$#%^&*()-=_+[]]:;,./<>?\| ]+}).select.with_index { |_word, i| i.even? }
 
   # split_list = [" ", "!", "@", "$", "#", "%", "^", "&", "*", "(", ")", "-", "=", "_", "+", "[", "]", ":", ";", ",", ".", "/", "<", ">", "?", "\\", "|"]
 

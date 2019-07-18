@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Write a method named get_squares that takes an array of numbers
 # and returns a sorted array containing only the numbers whose square is also in the array
 #
@@ -8,15 +10,11 @@
 
 # This time you will have to define the method, it's called: get_squares
 
-
 def get_squares(array)
   array.sort!
-  output = Array.new
+  output = []
   array.each do |value|
-    if array.include?(value*value)
-      output << value
-    end
+    output << value if array.include?(value * value)
   end
-  return output
+  output
 end
-

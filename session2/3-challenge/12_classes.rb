@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!!
 
 # Define a class called Fraction
@@ -23,29 +25,29 @@
 # f.to_f               # => 0.5
 
 class Fraction
-  attr_accessor 'numerator', "denominator"
+  attr_accessor 'numerator', 'denominator'
 
-  def initialize(numerator ,denominator)
+  def initialize(numerator, denominator)
     @numerator = numerator.to_i
     @denominator = denominator.to_i
   end
 
   def to_s
-    return @numerator.to_s + "/" + @denominator.to_s
+    @numerator.to_s + '/' + @denominator.to_s
   end
 
-
   def to_f
-    return @numerator.to_f / @denominator
+    @numerator.to_f / @denominator
   end
 
   def lowest
-    gcd = gcd(@numerator,@denominator)
-    Fraction.new((@numerator / gcd),(@denominator / gcd))
+    gcd = gcd(@numerator, @denominator)
+    Fraction.new((@numerator / gcd), (@denominator / gcd))
   end
 
-  def gcd(a,b)
+  def gcd(a, b)
     return a if b == 0
-    gcd(b, a%b)
+
+    gcd(b, a % b)
   end
 end

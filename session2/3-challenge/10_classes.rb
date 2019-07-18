@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Make a person class that has a name, age, and birthday
 #
 # josh = Person.new 'Josh', 28
@@ -16,13 +18,14 @@
 #
 
 class Person
-  attr_accessor 'name','age','birthday'
-  def initialize(name,age)
+  attr_accessor 'name', 'age', 'birthday'
+  def initialize(name, age)
     @name = name
     @age = age
   end
+
   def birthday
     @age += 1
-    return age
+    age
   end
 end

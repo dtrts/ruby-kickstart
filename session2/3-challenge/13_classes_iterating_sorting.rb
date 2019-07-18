@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!!
 
 # In this exercise you'll need to create two classes.
@@ -18,8 +20,6 @@
 #      def ==(other)
 #        return self.date == other.date
 #      end
-
-
 
 # ==========  EXAMPLE  ==========
 #
@@ -68,14 +68,11 @@
 #                       I am a pioneer, synthetic engineer, On the brink of discovery, On the eve of historic light, Worked in secret for decades,
 #                       All my labor will be lost with time
 
-
-
 # date docs are at: http://ruby-doc.org/core/classes/Date.html
 # don't spend too much time worrying about them :)
 require 'date'
 
 class User
-
   attr_accessor :username, :blogs
 
   def initialize(username)
@@ -88,37 +85,33 @@ class User
     blogs << new_blog
     # self.blogs = blogs.sort_by
     # blogs.sort_by!{|blog|blog.date}.reverse
-    self.blogs = blogs.sort_by { |blog| blog.date }.reverse
+    self.blogs = blogs.sort_by(&:date).reverse
     # blogs.sort!{|a,b| b.date <=> a.date}
     new_blog
   end
-
-
 end
 
 class Blog
-
   attr_accessor :date, :user, :text
 
-  def initialize(date,user,text)
+  def initialize(date, user, text)
     self.date = date
     self.user = user
     self.text = text
   end
 
   def summary
-    text[/([^ ]*[ ]){9}[^ ]*/]==nil ? text : text[/([^ ]*[ ]){9}[^ ]*/]
+    text[/([^ ]*[ ]){9}[^ ]*/].nil? ? text : text[/([^ ]*[ ]){9}[^ ]*/]
     # text.split[0..9].join(' ')
   end
 
-    def entry
-      "#{user.username} #{date}\n#{text}"
-    end
+  def entry
+    "#{user.username} #{date}\n#{text}"
+  end
 
   def ==(other)
     date == other.date &&
-    user == other.user &&
-    text == other.text
+      user == other.user &&
+      text == other.text
   end
-
 end
