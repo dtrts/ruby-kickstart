@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This problem is based off of example 2
 # Modify it so that it also tracks a person's age and a quote
 # Allow any of these to be set with a hash as well, but the block should overwrite the hash
@@ -24,21 +26,18 @@
 # artist.name   # => "The Artist Formarly Known As Prince"
 # artist.age    # => 47
 
-
 class Person
-
   attr_accessor :name, :age, :quote
 
-  def initialize(options=Hash.new, &initializer )
+  def initialize(options = {}, &initializer)
     @name = options[:name]
     @age = options[:age]
     @quote = options[:quote]
     @initializer = initializer
-    initializer.call self if initializer
+    yield self if initializer
   end
 
   def reinit
     @initializer.call self
   end
-
 end

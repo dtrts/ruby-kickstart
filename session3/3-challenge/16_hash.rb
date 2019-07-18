@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT SPEND MORE THAN 30-40 MINUTES STRUGGLING THROUGH THIS BEFORE MOVING ON!
 
 # Print to stdout, each element in a hash based linked list.
@@ -17,18 +19,15 @@
 # head = {:data => 6, :next => head}
 # print_list head                    # >> "6\n5\n4\n3\n2\n1\n"
 
-
 def print_list(head)
   data = data_from_head(head)
   puts data.join("\n")
 end
 
 def data_from_head(head)
-
-  if head[:next] == nil
-    return [head[:data]]
+  if head[:next].nil?
+    [head[:data]]
   else
     [head[:data]] + data_from_head(head[:next])
   end
-
 end

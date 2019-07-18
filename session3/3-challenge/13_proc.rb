@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT SPEND MORE THAN 30-40 MINUTES STRUGGLING THROUGH THIS BEFORE MOVING ON!
 
 # Build your own sort method. It does not have to be fancy, any sort will do.
@@ -54,13 +56,10 @@
 #   end
 # end       # => ["a", "m", "r", 1, 3, 4, 9, 2.5, 9.0, 25.8]
 
-
-
-def your_sort(arr ,&block)
+def your_sort(arr, &block)
   if block
-    return arr.sort{ |a,b| block.call(a,b)}
+    arr.sort { |a, b| yield(a, b) }
   else
-    return arr.sort{|a,b| a<=>b}
+    arr.sort { |a, b| a <=> b }
   end
 end
-

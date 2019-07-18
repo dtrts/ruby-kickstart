@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!!
 
 # Write a method, match_maker, which will receive an unknown number of
@@ -19,18 +21,14 @@
 # match_maker true,  true,  true, true, nil     # => [false, true]
 # match_maker true,  true,  true, 0, nil        # => [false, true]
 
-def match_maker(tester ,*args)
-  args.each_slice(2).each_with_object([]) do |slice ,output|
-     a, b = !!slice[0], !!slice[1]
-     if tester
-        a == b ? output << false : output << true
-     else
-        a == b ? output << true : output << false
-     end
-
+def match_maker(tester, *args)
+  args.each_slice(2).each_with_object([]) do |slice, output|
+    a = !!slice[0]
+    b = !!slice[1]
+    output << if tester
+                a != b
+              else
+                (a == b)
+              end
   end
-
-
 end
-
-

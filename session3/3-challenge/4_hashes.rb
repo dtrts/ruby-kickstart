@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Write first_pos, a method which takes a string and , returns a hash
 # whose keys are all the words in the string, and values are the
 # earliest position they were seen in the string.
@@ -7,11 +9,11 @@
 # first_pos "The dog and the cat and the cow" # => {"The" => 0, "dog" => 1, "and" => 2, "the" => 3, "cat" => 4, "cow" => 7}
 
 def first_pos(string)
-  output = Hash.new
+  output = {}
 
   string.split.each_with_index do |word, index|
-    output[word] = index if output[word] == nil
+    output[word] = index if output[word].nil?
   end
 
-  return output
+  output
 end

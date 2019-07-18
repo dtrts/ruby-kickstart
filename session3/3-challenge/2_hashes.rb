@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Given a nonnegative integer, return a hash whose keys are all the odd nonnegative integers up to it
 # and each key's value is an array containing all the even non negative integers up to it.
 #
@@ -9,21 +11,15 @@
 # staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
 
 def staircase(int)
-  output = Hash.new
+  output = {}
   int.downto 1 do |value|
-    if value%2 == 1
+    if value.odd?
       output[value] = []
       value.downto 1 do |value_2|
-        output[value] << value_2 if value_2%2 == 0
+        output[value] << value_2 if value_2.even?
       end
     end
-    output[value] = output[value].reverse if output[value] != nil
+    output[value] = output[value].reverse unless output[value].nil?
   end
-  return output
+  output
 end
-
-
-
-
-
-

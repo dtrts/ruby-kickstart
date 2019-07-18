@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!! IT'S A TOUGH ONE :)
 
 # Write a method, spiral_access, that takes a 2d square array (an array of arrays)
@@ -19,51 +21,44 @@
 # end
 # order # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
 
-
-def spiral_access(two_d ,&block)
-
+def spiral_access(two_d, &block)
   len = two_d.length
 
   return if two_d[0].length <= 0
 
   if len == 1
-    block.call(two_d[0][0])
+    yield(two_d[0][0])
 
   elsif len == 2
-    block.call(two_d[0][0])
-    block.call(two_d[0][1])
-    block.call(two_d[1][1])
-    block.call(two_d[1][0])
+    yield(two_d[0][0])
+    yield(two_d[0][1])
+    yield(two_d[1][1])
+    yield(two_d[1][0])
 
   elsif len > 2
     # top row
     0.upto len - 1 do |i|
-      block.call(two_d[0][i])
-
+      yield(two_d[0][i])
     end
 
     # right column
-    1.upto len-1 do |i|
-      block.call(two_d[i][len-1])
-
+    1.upto len - 1 do |i|
+      yield(two_d[i][len - 1])
     end
 
     # bottom row
-    (len-2).downto 0 do |i|
-      block.call(two_d[len-1][i])
-
+    (len - 2).downto 0 do |i|
+      yield(two_d[len - 1][i])
     end
 
     # left column
-    (len-2).downto 1 do |i|
-      block.call(two_d[i][0])
-
+    (len - 2).downto 1 do |i|
+      yield(two_d[i][0])
     end
 
     second_two_d = []
-    1.upto (len-2) do |i|
-      second_two_d << two_d[i][1..len-2]
-
+    1.upto (len - 2) do |i|
+      second_two_d << two_d[i][1..len - 2]
     end
 
     spiral_access(second_two_d, &block)
@@ -72,5 +67,4 @@ def spiral_access(two_d ,&block)
     return
 
   end
-
 end

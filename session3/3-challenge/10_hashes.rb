@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!!
 
 # Lets represent a file system with hashes
@@ -30,11 +32,9 @@
 #
 # create it from scratch :)
 
-
-
 def pathify(roots)
-
   return [] unless roots
+
   output = []
 
   if roots.is_a?(Hash)
@@ -50,6 +50,5 @@ def pathify(roots)
     end
   end
 
-  return output
-
+  output
 end

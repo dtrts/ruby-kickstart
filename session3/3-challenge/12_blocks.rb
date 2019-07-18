@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # You have software to take payment from a customer
 # There are 4 ways to pay, and they are all very similar.
 # One day, you are paying by cash, and you realize you never calculated the tax!
@@ -22,7 +24,6 @@
 # NOTE: This code will only work with the rake tests, which will define the order and current_user
 # you will not be able to run this code outside of the test
 
-
 def pay_by(order)
   order.compute_cost
   order.compute_shipping
@@ -33,26 +34,26 @@ end
 
 def pay_by_visa(order, ccn)
   pay_by(order) do
-    order.payment :type => :visa, :ccn => ccn
+    order.payment type: :visa, ccn: ccn
     order.verify_payment
   end
 end
 
 def pay_by_check(order)
   pay_by(order) do
-    order.payment :type => :check, :signed => true
+    order.payment type: :check, signed: true
   end
 end
 
 def pay_by_cash(order)
   pay_by(order) do
-    order.payment :type => :cash
+    order.payment type: :cash
   end
 end
 
 def pay_by_store_credit(order, current_user)
   pay_by(order) do
-    order.payment :type => :store_credit
-    current_user.store_credit -= order.cost   # current_user is a method with no params (ie, the customer)
+    order.payment type: :store_credit
+    current_user.store_credit -= order.cost # current_user is a method with no params (ie, the customer)
   end
 end

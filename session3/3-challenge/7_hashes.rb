@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!
 
 # This challenge is based off of Example 1 (session 3/2-examples/1_hashes)
@@ -28,47 +30,46 @@
 
 class HTMLTag
   FONTS = {
-    :serif      => '"Times New Roman", "Georgia"',
-    :sans_serif => '"Arial", "Verdana"',
-    :monospace  => '"Courier New", "Lucida Console"'
-  }
+    serif: '"Times New Roman", "Georgia"',
+    sans_serif: '"Arial", "Verdana"',
+    monospace: '"Courier New", "Lucida Console"'
+  }.freeze
 
   COLORS = {
-    :red => "#FF0000",
-    :green => "#00FF00",
-    :blue => "#0000FF"
-  }
+    red: '#FF0000',
+    green: '#00FF00',
+    blue: '#0000FF'
+  }.freeze
 
   attr_accessor :name, :innerHTML, :font, :color, :multiline
 
   # options: :multiline should be true or false
-  def initialize(name, innerHTML, options={})
-    @name, @innerHTML = name, innerHTML
+  def initialize(name, innerHTML, options = {})
+    @name = name
+    @innerHTML = innerHTML
     @font = FONTS[options[:font]]
     @color = COLORS[options[:color]]
     @multiline = options.fetch(:multiline, false)
   end
 
-  def style()
+  def style
     # puts "Style called"
-    style_string = "style=\""
+    style_string = 'style="'
     style_string += "font-family:#{@font};" if @font
     style_string += "color:#{@color};" if @color
-    style_string += "\""
+    style_string += '"'
     # puts "Style string is currently #{style_string}"
-    if style_string == "style=\"\""
+    if style_string == 'style=""'
       return nil
     else
       return style_string
     end
-
   end
 
   def to_s
-    line_end = if @multiline then "\n" else "" end
-    "<#{@name} #{style()}>#{line_end}"  \
+    line_end = @multiline ? "\n" : ''
+    "<#{@name} #{style}>#{line_end}"  \
     "#{innerHTML.chomp}#{line_end}"  \
     "</#{name}>\n"
   end
 end
-

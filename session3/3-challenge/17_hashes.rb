@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT SPEND MORE THAN 30-40 MINUTES STRUGGLING THROUGH THIS BEFORE MOVING ON!
 
 # Print to stdout, each element in a hash based linked list, in reverse.
@@ -14,13 +16,10 @@ def print_list_in_reverse(list)
   puts data.reverse.join("\n")
 end
 
-
 def data_from_head(head)
-
-  if head[:next] == nil
-    return [head[:data]]
+  if head[:next].nil?
+    [head[:data]]
   else
     [head[:data]] + data_from_head(head[:next])
   end
-
 end

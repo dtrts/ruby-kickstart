@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 # Befor tackling this problem, go and digest the lecture on RECURSION:
 
 # https://vimeo.com/24716767
 
 # ONCE YOU'VE WATCHED THIS VIDEO, DO NOT SPEND MORE THAN 30-40 MINUTES STRUGGLING THROUGH THIS CHALLENGE BEFORE MOVING ON!
-
 
 # For this problem, you will need to know how to use a linked list.
 #
@@ -46,20 +47,15 @@
 # head = {:data => 6, :next => head}
 # middle head                        # => 3
 
-
-
 def middle(head)
   data = data_from_head(head)
-  return data[data.length/2]
+  data[data.length / 2]
 end
 
-
 def data_from_head(head)
-
-  if head[:next] == nil
-    return [head[:data]]
+  if head[:next].nil?
+    [head[:data]]
   else
     [head[:data]] + data_from_head(head[:next])
   end
-
 end

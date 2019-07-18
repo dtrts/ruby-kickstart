@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # DO NOT STRUGGLE ON THIS PROBLEM FOR MORE THAN 30 MINUTES!
 
 # Write a method that initializes an Array
@@ -31,36 +33,12 @@
 #   end
 # end
 
-
-def array_init(num=5,&block)
-
+def array_init(num = 5, &block)
   arr = Array.new(num) do |i|
     if block
-      block.call(i)
+      yield(i)
     else
-      (i*100).to_s
+      (i * 100).to_s
     end
   end
-
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
