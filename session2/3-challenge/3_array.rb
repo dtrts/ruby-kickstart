@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Write a method named every_other_char for strings that,
 # returns a string containing every other character
 #
